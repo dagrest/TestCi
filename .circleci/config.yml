@@ -1,0 +1,28 @@
+version: 2.1
+
+jobs:
+  build:
+    working_directory: ~/circleci-go
+    docker:
+      - image: cimg/go:1.16
+    #        auth:
+    #          username: mydockerhub-user
+    #          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    steps:
+      - checkout
+      - run: go run main.go
+  test:
+    working_directory: ~/circleci-go
+    docker:
+      - image: cimg/go:1.16
+    steps:
+      - checkout
+      - run: go test ./...
+
+workflows:
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
