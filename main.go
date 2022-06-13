@@ -31,7 +31,7 @@ func GetHttpClient() *http.Client {
 }
 
 func main() {
-
+	// comment
 	var myState State
 	myState = CANCELLED
 	fmt.Println(myState)
