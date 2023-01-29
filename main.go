@@ -1,5 +1,5 @@
 package main
-
+// %%%%%%%%%%%%%%%%%%%%
 import (
 	logic "TestCi/src"
 	"fmt"
